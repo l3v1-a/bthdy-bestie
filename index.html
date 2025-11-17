@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday To My chota packet ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 50px;
+      color: #fff;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .heart {
+      font-size: 4rem;
+      animation: beat 0.8s infinite;
+      margin-top: 10px;
+    }
+
+    @keyframes beat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      width: 80%;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .wish-btn {
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .wish-btn:hover {
+      transform: scale(1.1);
+      background: #d6336c;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #d6336c;
+      font-weight: bold;
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday Bestie ❤️</h1>
+  <div class="heart">💖</div>
+
+  <div class="card">
+    <h2>18 November — A Special Day 🎉</h2>
+    <p>
+      Today is the day the world got a little more beautiful because *you* were born.  
+      You are the sweetest, kindest, and most amazing person.  Jada Enlish nhi aati 
+      mere ko jitna aata tha bol diya bss aur suno tum bhot ache ho itne ache na rha kro
+      thik hai shamjgye aur ache si enjoy krna aapna days sad air roona toh bilkul nhi apne
+      lye nhi toh mere leye hi aur khush raho abad raho 
+
+
+      I AM ALWAYS WITH YOU YOU ARE MY 
+      BIGGEST SUPPORTER ❤️💝💖🫂
+
+      or 
+
+      PARESHAN MAT HONA ME HUN JABTAK KYUKI ME KRTA RHETA HUN NA TOH MERI DUTY MERI KO HI KRNA 
+      I’m lucky to have you as my bestie! 🥺❤️
+    </p>
+
+    <button class="wish-btn" onclick="showMessage()">Touch krke dehko Surprise 💝</button>
+    <div class="message" id="msg"> I LOVEEEE YOUUUU A LOTTTT 💖🫂 🎂✨</div
+  </div>
+
+  <canvas class="confetti" id="confetti"></canvas>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").style.display = "block";
+      startConfetti();
+    }
+
+    // Simple confetti generator
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let confettiPieces = [];
+
+    function startConfetti() {
+      for (let i = 0; i < 200; i++) {
+        confettiPieces.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          size: Math.random() * 8 + 2,
+          speed: Math.random() * 3 + 1,
+          color: `hsl(${Math.random() * 360}, 100%, 60%)`
+        });
+      }
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettiPieces.forEach((c) => {
+        ctx.fillStyle = c.color;
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
+        ctx.fill();
+        c.y += c.speed;
+        if (c.y > canvas.height) c.y = -10;
+      });
+      requestAnimationFrame(animateConfetti);
+    }
+  </script>
+
+  <audio id="bgm" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7a3d2bbd37.mp3?filename=romantic-piano-113258.mp3" autoplay loop></audio>
+
+</body>
+</html>
